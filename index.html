@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Абстракционизм</title>
+    <style>
+        /* Ограничение размера содержимого блока их границами */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Переменные */
+        :root {
+            /* Фон страницы */
+            --bg: teal;
+
+            /* Размера рамок */
+            --s: max(1rem, 2vw);
+            /* Цвета фона в картинках */
+            --bg-picture: deeppink;
+            /* Цвет полосы */
+            --color-line: lime;
+            /* Цвет нескольких линий */
+            --color-lines: black;
+            /* Цвет круга */
+            --color-circle: white;
+
+            /* Блок 1 */
+            /* Поворот линий */
+            --dir-1: 35deg;
+            /* Поворот полосы */
+            --c1-angle-1: 175deg;
+            /* Ширину полосы */
+            --c1-w-1: 55%;
+            /* Центр круга */
+            --circle-pos-1: 60% 12%;
+            /* Размер круга */
+            --circle-size-1: 9%;
+
+            /* Блок 2 */
+            /* Поворот линий */
+            --dir-2: 35deg;
+            /* Поворот полосы */
+            --c1-angle-2: 175deg;
+            /* Ширину полосы */
+            --c1-w-2: 55%;
+            /* Центр круга */
+            --circle-pos-2: 60% 12%;
+            /* Размер круга */
+            --circle-size-2: 9%;
+
+            /* Блок 3 */
+            /* Поворот линий */
+            --dir-3: 35deg;
+            /* Поворот полосы */
+            --c1-angle-3: 175deg;
+            /* Ширину полосы */
+            --c1-w-3: 55%;
+            /* Центр круга */
+            --circle-pos-3: 60% 12%;
+            /* Размер круга */
+            --circle-size-3: 9%;
+
+            /* Блок 4 */
+            /* Поворот линий */
+            --dir-4: 35deg;
+            /* Поворот полосы */
+            --c1-angle-4: 175deg;
+            /* Ширину полосы */
+            --c1-w-4: 55%;
+            /* Центр круга */
+            --circle-pos-4: 60% 12%;
+            /* Размер круга */
+            --circle-size-4: 9%;
+
+            /* Блок 5 */
+            /* Поворот линий */
+            --dir-5: 35deg;
+            /* Поворот полосы */
+            --c1-angle-5: 175deg;
+            /* Ширину полосы */
+            --c1-w-5: 55%;
+            /* Центр круга */
+            --circle-pos-5: 60% 12%;
+            /* Размер круга */
+            --circle-size-5: 9%;
+
+            /* Блок 6 */
+            /* Поворот линий */
+            --dir-6: 35deg;
+            /* Поворот полосы */
+            --c1-angle-6: 175deg;
+            /* Ширину полосы */
+            --c1-w-6: 55%;
+            /* Центр круга */
+            --circle-pos-6: 60% 12%;
+            /* Размер круга */
+            --circle-size-6: 9%;
+
+            /* Блок 7 */
+            /* Поворот линий */
+            --dir-7: 35deg;
+            /* Поворот полосы */
+            --c1-angle-7: 175deg;
+            /* Ширину полосы */
+            --c1-w-7: 55%;
+            /* Центр круга */
+            --circle-pos-7: 60% 12%;
+            /* Размер круга */
+            --circle-size-7: 9%;
+
+            /* Блок 8 */
+            /* Поворот линий */
+            --dir-8: 35deg;
+            /* Поворот полосы */
+            --c1-angle-8: 175deg;
+            /* Ширину полосы */
+            --c1-w-8: 55%;
+            /* Центр круга */
+            --circle-pos-8: 60% 12%;
+            /* Размер круга */
+            --circle-size-8: 9%;
+
+            /* Блок 9 */
+            /* Поворот линий */
+            --dir-9: 35deg;
+            /* Поворот полосы */
+            --c1-angle-9: 175deg;
+            /* Ширину полосы */
+            --c1-w-9: 55%;
+            /* Центр круга */
+            --circle-pos-9: 60% 12%;
+            /* Размер круга */
+            --circle-size-9: 9%;
+        }
+
+        /* Общие настройки для всей страницы */
+        body {
+            /* Отступы */
+            margin: 0;
+            padding: var(--s);
+            /* Размещаение элементов по сетке */
+            display: grid;
+            /* Контент занимает всю высоту экрана */
+            min-height: 100vh;
+            /* Расположение элеменов по центру */
+            place-items: center;
+            /* Цвет фона для страницы */
+            background: var(--bg);
+        }
+
+        /* Настройки общего блока с картинками */
+        .wrapper {
+            /* Ширина блока */
+            width: 100%;
+            max-width: 70rem;
+            /* Расположение элеменов по центру */
+            display: grid;
+            /* Расстояние между картинками */
+            gap: var(--s);
+            /* Заполняем общий блок мелкими картинками с автоподбором расстояния */
+            grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+        }
+
+        /* Настройки отдельной картинки внутри общего блока */
+        .wrapper div {
+            /* Делаем их квадратными */
+            aspect-ratio: 1;
+            /* Рамки вокруг картинок */
+            border: calc(var(--s) * 0.2) solid;
+            /* Фон для мелких картинок */
+            background-color: var(--bg-picture);
+            /* Создаём и настраиваем первую картинку */
+            --c1-pos: 30%;
+            /* Все элементы на картинке используются как части изображения */
+            background-image:
+                /* Несколько линий */
+                linear-gradient(
+                    /* Направление линий */
+                    var(--dir, var(--dir-1)),
+                    /* Формируем 4 линии, каждая со своими параметрами прозрачности */
+                    transparent 10%, var(--color-lines) 0, var(--color-lines) 15%, transparent 0,
+                    transparent 18%, var(--color-lines) 0, var(--color-lines) 22%, transparent 0,
+                    transparent 25.25%, var(--color-lines) 0, var(--color-lines) 29%, transparent 0,
+                    transparent 33%, var(--color-lines) 0, var(--color-lines) 35.5%, transparent 0),
+                /* Создаём полосу */
+                linear-gradient(
+                    /* Направление полосы */
+                    var(--c1-angle, var(--c1-angle-1)),
+                    /* Параметры полосы */
+                    transparent var(--c1-pos), var(--color-line) 0, var(--color-line) calc(var(--c1-pos) + var(--c1-w, var(--c1-w-1))), transparent 0),
+                /* Создаём круг */
+                radial-gradient(
+                    /* Положение круга */
+                    circle at var(--circle-pos, var(--circle-pos-1)),
+                    /* Размер круга */
+                    var(--color-circle) var(--circle-size, var(--circle-size-1)),
+                    /* Прозрачность */
+                    transparent 0);
+
+            /* Указываем параметры картинки в каждом блоке	*/
+            &:nth-child(2) {
+                --dir: var(--dir-2);
+                --c1-angle: var(--c1-angle-2);
+                --c1-w: var(--c1-w-2);
+                --circle-pos: var(--circle-pos-2);
+                --circle-size: var(--circle-size-2);
+            }
+
+            &:nth-child(3) {
+                --dir: var(--dir-3);
+                --c1-angle: var(--c1-angle-3);
+                --c1-w: var(--c1-w-3);
+                --circle-pos: var(--circle-pos-3);
+                --circle-size: var(--circle-size-3);
+            }
+
+            &:nth-child(4) {
+                --dir: var(--dir-4);
+                --c1-angle: var(--c1-angle-4);
+                --c1-w: var(--c1-w-4);
+                --circle-pos: var(--circle-pos-4);
+                --circle-size: var(--circle-size-4);
+            }
+
+            &:nth-child(5) {
+                --dir: var(--dir-5);
+                --c1-angle: var(--c1-angle-5);
+                --c1-w: var(--c1-w-5);
+                --circle-pos: var(--circle-pos-5);
+                --circle-size: var(--circle-size-5);
+            }
+
+            &:nth-child(6) {
+                --dir: var(--dir-6);
+                --c1-angle: var(--c1-angle-6);
+                --c1-w: var(--c1-w-6);
+                --circle-pos: var(--circle-pos-6);
+                --circle-size: var(--circle-size-6);
+            }
+
+            &:nth-child(7) {
+                --dir: var(--dir-7);
+                --c1-angle: var(--c1-angle-7);
+                --c1-w: var(--c1-w-7);
+                --circle-pos: var(--circle-pos-7);
+                --circle-size: var(--circle-size-7);
+            }
+
+            &:nth-child(8) {
+                --dir: var(--dir-8);
+                --c1-angle: var(--c1-angle-8);
+                --c1-w: var(--c1-w-8);
+                --circle-pos: var(--circle-pos-8);
+                --circle-size: var(--circle-size-8);
+            }
+
+            &:nth-child(9) {
+                --dir: var(--dir-9);
+                --c1-angle: var(--c1-angle-9);
+                --c1-w: var(--c1-w-9);
+                --circle-pos: var(--circle-pos-9);
+                --circle-size: var(--circle-size-9);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        function RND(min, max) {
+            const minCeiled = Math.ceil(min)
+            const maxFloored = Math.floor(max)
+            return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
+        }
+
+        function genColor() {
+            var letters = '0123456789ABCDEF'
+            var color = '#'
+            for (var i = 0; i < 6; i++) {
+                color += letters[RND(0, letters.length)]
+            }
+            return color
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            block_color = ["bg", "bg-picture", "color-line", "color-lines", "color-circle"]
+            for (let i = 0; i < block_color.length; i++) {
+                document.documentElement.style.setProperty(`--${block_color[i]}`, genColor())
+            }
+            for (let i = 1; i < 10; i++) {
+                document.documentElement.style.setProperty(`--dir-${i}`, `${RND(0, 361)}deg`)
+                document.documentElement.style.setProperty(`--c1-angle-${i}`, `${RND(0, 361)}deg`)
+                document.documentElement.style.setProperty(`--c1-w-${i}`, `${RND(0, 101)}%`)
+                document.documentElement.style.setProperty(`--circle-pos-${i}`, `${RND(0, 101)}% ${RND(0, 101)}%`)
+                document.documentElement.style.setProperty(`--circle-size-${i}`, `${RND(0, 101)}%`)
+            }
+        });
+    </script>
+</body>
+
+</html>
