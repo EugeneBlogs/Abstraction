@@ -282,21 +282,21 @@
     </div>
     <script>
         function RND(min, max) {
-            const minCeiled = Math.ceil(min)
-            const maxFloored = Math.floor(max)
+            let minCeiled = Math.ceil(min)
+            let maxFloored = Math.floor(max)
             return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
         }
 
         function genColor() {
-            var letters = '0123456789ABCDEF'
-            var color = '#'
-            for (var i = 0; i < 6; i++) {
+            let letters = '0123456789ABCDEF'
+            let color = '#'
+            for (let i = 0; i < 6; i++) {
                 color += letters[RND(0, letters.length)]
             }
             return color
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
+        function createPictures() {
             block_color = ["bg", "bg-picture", "color-line", "color-lines", "color-circle"]
             for (let i = 0; i < block_color.length; i++) {
                 document.documentElement.style.setProperty(`--${block_color[i]}`, genColor())
@@ -308,7 +308,10 @@
                 document.documentElement.style.setProperty(`--circle-pos-${i}`, `${RND(0, 101)}% ${RND(0, 101)}%`)
                 document.documentElement.style.setProperty(`--circle-size-${i}`, `${RND(0, 101)}%`)
             }
-        });
+        }
+
+        createPictures()
+        setInterval(createPictures, 10000)
     </script>
 </body>
 
