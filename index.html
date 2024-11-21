@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Абстракция</title>
     <style>
         /* Ограничение размера содержимого блока их границами */
@@ -269,18 +270,21 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="wrapper" id="pictures">
+        <div data-aos="fade-down-right" data-aos-duration="700"></div>
+        <div data-aos="fade-down" data-aos-duration="700"></div>
+        <div data-aos="fade-down-left" data-aos-duration="700"></div>
+        <div data-aos="fade-right" data-aos-duration="700"></div>
+        <div data-aos="zoom-in" data-aos-duration="700"></div>
+        <div data-aos="fade-left" data-aos-duration="700"></div>
+        <div data-aos="fade-up-right" data-aos-duration="700"></div>
+        <div data-aos="fade-up" data-aos-duration="700"></div>
+        <div data-aos="fade-up-left" data-aos-duration="700"></div>
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init();
+
         function RND(min, max) {
             let minCeiled = Math.ceil(min)
             let maxFloored = Math.floor(max)
@@ -297,6 +301,18 @@
         }
 
         function createPictures() {
+            document.getElementById("pictures").innerHTML =
+                `
+            <div data-aos="fade-down-right" data-aos-duration="700"></div>
+            <div data-aos="fade-down" data-aos-duration="700"></div>
+            <div data-aos="fade-down-left" data-aos-duration="700"></div>
+            <div data-aos="fade-right" data-aos-duration="700"></div>
+            <div data-aos="zoom-in" data-aos-duration="700"></div>
+            <div data-aos="fade-left" data-aos-duration="700"></div>
+            <div data-aos="fade-up-right" data-aos-duration="700"></div>
+            <div data-aos="fade-up" data-aos-duration="700"></div>
+            <div data-aos="fade-up-left" data-aos-duration="700"></div>
+            `
             block_color = ["bg", "bg-picture", "color-line", "color-lines", "color-circle"]
             for (let i = 0; i < block_color.length; i++) {
                 document.documentElement.style.setProperty(`--${block_color[i]}`, genColor())
