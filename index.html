@@ -201,13 +201,21 @@
                     /* Прозрачность */
                     transparent 0);
 
-            /* Указываем параметры картинки в каждом блоке	*/
+            /* Указываем параметры картинки в каждом блоке + анимацию пульсации */
+            &:nth-child(1):hover {
+                transform: scale(1.1) rotate(-10deg);
+            }
+
             &:nth-child(2) {
                 --dir: var(--dir-2);
                 --c1-angle: var(--c1-angle-2);
                 --c1-w: var(--c1-w-2);
                 --circle-pos: var(--circle-pos-2);
                 --circle-size: var(--circle-size-2);
+            }
+
+            &:nth-child(2):hover {
+                transform: scale(1.1) translate(0px, -30px);
             }
 
             &:nth-child(3) {
@@ -218,12 +226,20 @@
                 --circle-size: var(--circle-size-3);
             }
 
+            &:nth-child(3):hover {
+                transform: scale(1.1) rotate(10deg);
+            }
+
             &:nth-child(4) {
                 --dir: var(--dir-4);
                 --c1-angle: var(--c1-angle-4);
                 --c1-w: var(--c1-w-4);
                 --circle-pos: var(--circle-pos-4);
                 --circle-size: var(--circle-size-4);
+            }
+
+            &:nth-child(4):hover {
+                transform: scale(1.1) translate(-30px, 0px);
             }
 
             &:nth-child(5) {
@@ -234,12 +250,20 @@
                 --circle-size: var(--circle-size-5);
             }
 
+            &:nth-child(5):hover {
+                transform: scale(1.2) rotate(90deg);
+            }
+
             &:nth-child(6) {
                 --dir: var(--dir-6);
                 --c1-angle: var(--c1-angle-6);
                 --c1-w: var(--c1-w-6);
                 --circle-pos: var(--circle-pos-6);
                 --circle-size: var(--circle-size-6);
+            }
+
+            &:nth-child(6):hover {
+                transform: scale(1.1) translate(30px, 0px);
             }
 
             &:nth-child(7) {
@@ -250,12 +274,20 @@
                 --circle-size: var(--circle-size-7);
             }
 
+            &:nth-child(7):hover {
+                transform: scale(1.1) rotate(-10deg);
+            }
+
             &:nth-child(8) {
                 --dir: var(--dir-8);
                 --c1-angle: var(--c1-angle-8);
                 --c1-w: var(--c1-w-8);
                 --circle-pos: var(--circle-pos-8);
                 --circle-size: var(--circle-size-8);
+            }
+
+            &:nth-child(8):hover {
+                transform: scale(1.1) translate(0px, 30px);
             }
 
             &:nth-child(9) {
@@ -265,12 +297,16 @@
                 --circle-pos: var(--circle-pos-9);
                 --circle-size: var(--circle-size-9);
             }
+
+            &:nth-child(9):hover {
+                transform: scale(1.1) rotate(10deg);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="wrapper" id="pictures">
+    <div class="wrapper">
         <div data-aos="fade-down-right" data-aos-duration="700"></div>
         <div data-aos="fade-down" data-aos-duration="700"></div>
         <div data-aos="fade-down-left" data-aos-duration="700"></div>
@@ -301,7 +337,7 @@
         }
 
         function createPictures() {
-            document.getElementById("pictures").innerHTML =
+            document.querySelector(".wrapper").innerHTML =
                 `
             <div data-aos="fade-down-right" data-aos-duration="700"></div>
             <div data-aos="fade-down" data-aos-duration="700"></div>
