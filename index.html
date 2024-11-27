@@ -360,6 +360,12 @@
                 document.documentElement.style.setProperty(`--circle-pos-${i}`, `${RND(0, 101)}% ${RND(0, 101)}%`)
                 document.documentElement.style.setProperty(`--circle-size-${i}`, `${RND(10, 51)}%`)
             }
+            if (location.href.includes("?")) {
+                let para = location.href.split("?")[1].split("&")
+                for (let i = 0; i < para.length; i++) {
+                    document.documentElement.style.setProperty(`--${para[i].split("=")[0]}`, `#${para[i].split("=")[1]}`)
+                }
+            }
         }
 
         createPictures()
